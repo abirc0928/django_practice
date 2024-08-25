@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block content %}
+{% load static %}
+<h2>Contact Us</h2>
+<h3>{{ emailaddress }}</h3>
+
+<p>
+  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos doloribus
+  nesciunt animi vitae excepturi provident asperiores ducimus quidem dolorum
+  iusto?
+</p>
+<img src="{% static 'Image/img2.jpeg' %}" alt="">
+<p>{{ socialMedia }}</p>
+<p>
+  <ul>
+    {% for profile in socialMedia %}
+    <li>{{profile | lower }}</li>
+    {% endfor %}
+  </ul>
+</p>
+<p>
+  {% if hq == "d" %}
+  <strong>Dhaka</strong>
+  {% elif hq == "k" %}
+  <strong>Khulna</strong>
+  {% elif hq == "r" %}
+  <strong>Rajsahi</strong>
+  {% else %}
+  <strong>Area 51</strong>
+  {% endif %}
+</p>
+{% endblock  %}
+
+{% block title %}Contact{% endblock  %}

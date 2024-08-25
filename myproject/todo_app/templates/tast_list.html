@@ -1,0 +1,11 @@
+{% extends "base.html" %} {% block contain %}
+<h1>All Tasks</h1>
+<ul>
+  {% for task in tasks %}
+  <li><a href="{% url 'task_details' task.pk %}">{{ task.title }}</a></li>
+  {% endfor %}
+</ul>
+<a href="/tasks/?completed=1">completed task</a><br />
+<a href="/tasks/?completed=0">Pending task</a><br />
+<a href="/tasks/">all task</a>
+{% endblock %}
