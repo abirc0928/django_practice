@@ -1,0 +1,23 @@
+
+
+{% extends "layout.html" %}
+{% block content %}
+<h1>from</h1>
+    {% comment %} <form method="post">
+        {% csrf_token %}
+        {{search_form}}
+        <input type="submit" value="submit">
+        <p>key: {{name}}</p>
+    </form> {% endcomment %}
+    <form method="post">
+        {% csrf_token %}
+        {{add_todo_form}}
+        <button type="submit">add</button>
+    </form>
+    <ul>
+        {% for todo in todos %}
+            <li>{{todo.title}} - {{todo.completed}}</li>
+        {% endfor %}
+    </ul>
+{% endblock  %}
+{% block title %}Orders{% endblock  %}

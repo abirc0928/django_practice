@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myapp',
     'orderapp',
-    'todo_app'
+    'todo_app',
+    'forms_module',
 ]
 
 MIDDLEWARE = [
