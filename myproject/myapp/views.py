@@ -18,7 +18,6 @@ def about(request):
 
 
 def contact(request):
-
     email = ("contact@exmple.com")
     title = ("Contact page")
     socialMedia = [
