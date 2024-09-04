@@ -1,8 +1,8 @@
 {% extends "base.html" %} {% block contain %}
-<h1>Add task</h1>
+<h1>Update task</h1>
 <form method="post">
     {% csrf_token %}
-    {% for field in form %}
+    {% comment %} {% for field in form %}
         <div>
             {{ field.label }}
             {{field}}
@@ -10,10 +10,9 @@
         {% for error in field.errors %}
             <p style="color: red;">{{ error }}</p>
         {% endfor %}
-    {% endfor %}
-    {% comment %} {{form.as_p}} {% endcomment %}
-    <button type="submit">Submit</button>
+    {% endfor %} {% endcomment %}
+    {{form.as_p}}
+    <button type="submit">Update</button>
 </form>
 
 {% endblock %}
-

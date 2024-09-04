@@ -13,8 +13,11 @@ def task_lsit(request):
     return render(request, 'tast_list.html', {'tasks':tasts})
 
 def task_details(request, pk):
-    task = Task.objects.get(pk = pk)
-    return render(request, 'task_datils.html', {'task':task}) 
+    try:
+        task = Task.objects.get(pk = pk)
+        return render(request, 'task_datils.html', {'task':task}) 
+    except task.DoesNotExist:
+        return HttpResponse("Task does not exit")
 
 def add_task(request):
     _title = "Let's have dinner together "
@@ -46,9 +49,30 @@ def add_task_form(request):
         if add_todo_form.is_valid():
             add_todo_form.save()
             return redirect("task_lsit")
+        else:
+            return render(request, "add_task.html", {"form":add_todo_form})
+            
 
     add_todo_form = TaskForm()
     context = {
         "form": add_todo_form,
     }
     return render(request, "add_task.html", context)
+
+def update_task_form(request, pk):
+    try:
+        task = Task.objects.get(pk = pk)
+        if request.method == "POST":
+            task_form = TaskForm(request.POST, instance=task)
+            if task_form.is_valid():
+                task_form.save()
+                return redirect("task_lsit")
+            else:
+                return render(request, "update_task_form.html", {"form":task_form})
+
+        task_form = TaskForm(instance=task)
+        return render(request, "update_task_form.html", {"form":task_form})
+        
+    except Task.DoesNotExist:
+        return HttpResponse("Task does not exist")
+    
