@@ -1,7 +1,9 @@
 {% extends "base.html" %} {% block contain %}
-<h1>Task Detail</h1>
-<p><strong>Title:</strong> {{ task.title }}</p>
-<p><strong>Description:</strong> {{ task.description }}</p>
-<p><strong>Completed:</strong> {{ task.completed }}</p>
-<p><strong>Due Date:</strong> {{ task.due_data }}</p>
+    <h1>Task Detail</h1>
+    <p><strong>Title:</strong> {{ task.title }}</p>
+    <p><strong>Description:</strong> {{ task.description }}</p>
+    <p><strong>Completed:</strong> {{ task.completed }}</p>
+    <p><strong>Due Date:</strong> {{ task.due_data }}</p>
+    <p><strong>User name: </strong> {{ task.user.first_name}}  {{ task.user.last_name}}</p>
+    <p><strong>User email: </strong> {{ task.user.email}}</p>
 {% endblock %}
