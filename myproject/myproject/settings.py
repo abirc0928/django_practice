@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'orderapp',
     'todo_app',
     'forms_module',
+    'accounts'
 ]
 
 MIDDLEWARE = [

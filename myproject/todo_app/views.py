@@ -185,7 +185,7 @@ def all_books(request):
                 "description": book.description,
                 "publication_date": book.publication_date,
                 # "author_ids":[
-                #     author.id for author in book.author.all()
+                #    ) author.id for author in book.author.all(
                 # ],
                 # "author": [
                 #     f"{author.first_name} {author.last_name}"

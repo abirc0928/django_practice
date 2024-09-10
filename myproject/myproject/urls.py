@@ -24,4 +24,5 @@ urlpatterns = [
     path('app/', include("orderapp.urls")),
     path('tasks/', include("todo_app.urls")),
     path('forms/', include("forms_module.urls")),
+    path('accounts/', include("accounts.urls"))
 ]
